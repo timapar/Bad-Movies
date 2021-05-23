@@ -15,8 +15,8 @@ const API = axios.create({
 // Don't forget to export your functions and require them within your server file
 
 module.exports.getGenreList = () => {
-  api.get(`/genre/movie/list?api_key=${API_KEY}&language=en-US`);
+  return api.get(`/genre/movie/list?api_key=${API_KEY}&language=en-US`);
 }
 module.exports.getMovieListByGenre = (genre) => {
-  api.get(`https://api.themoviedb.org/3/discover/movie?api_key=${API_KEY}&language=en-US&sort_by=popularity.asc&with_genres=${genre}`);
+  return api.get(`https://api.themoviedb.org/3/discover/movie?api_key=${API_KEY}&language=en-US&sort_by=vote_average.asc&with_genres=${genre}&vote_count.gte=1`);
 }
